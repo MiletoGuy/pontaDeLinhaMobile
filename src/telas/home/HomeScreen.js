@@ -1,9 +1,10 @@
 import React from 'react';
-import { Alert, View, Text, StyleSheet, BackHandler } from 'react-native';
+import { Alert, View, StyleSheet, BackHandler } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import BotaoHome from './BotaoHome.js';
 
-export default function DetailScreen() {
+export default function HomeScreen() {
   const navigation = useNavigation();
 
   
@@ -14,7 +15,7 @@ export default function DetailScreen() {
         onPress: () => null,
         style: 'cancel',
       },
-      {text: 'Sim', onPress: () => BackHandler.exitApp()},
+      {text: 'Sim', onPress: () => navigation.navigate('Login')},
     ]);
     return true;
   };
@@ -22,18 +23,14 @@ export default function DetailScreen() {
   const backHandler = BackHandler.addEventListener('hardwareBackPress', backAction,
   );
 
-  const handleFichas = () => {
-    navigation.navigate('Login');
-  };
 
   return (
     <SafeAreaView style={styles.container}>
-      <Text>Bem-vindo à tela Home!</Text>
-      <View style={styles.miniContainer}>
-        <Text style={styles.button} onPress={handleFichas}>Fichas</Text>
-        <Text style={styles.button}>Pesquisa</Text>
-        <Text style={styles.button}>Solicitações</Text>
-        <Text style={styles.button}>Meus Dados</Text>
+      <View style={styles.miniContainer}> 
+        <BotaoHome texto={'Fichas'} imagem={require('./imagens/fichas.png')}/>
+        <BotaoHome texto={'Pesquisa'} imagem={require('./imagens/pesquisa.png')}/>
+        <BotaoHome texto={'Solicitações'} imagem={require('./imagens/solicitacoes.png')}/>
+        <BotaoHome texto={'Meus Dados'} imagem={require('./imagens/meusDados.png')}/>
       </View>
     </SafeAreaView>
   );
@@ -53,17 +50,26 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexWrap: 'wrap'
   },
-  button: {
-    borderRadius: 6,
+  botaoArea: {
     margin: 5,
+    borderRadius: 6,
     width: '43%',
     flexBasis: '46%',
+    backgroundColor: 'white',
+    justifyContent: 'space-between',
+    alignItems: 'center'
+  },
+  botaoTexto: {
     fontSize: 16,
     fontWeight: 'bold',
     letterSpacing: 0.25,
     color: 'black',
-    backgroundColor: 'white',
     textAlign: 'center',
     textAlignVertical: 'bottom'
   },
+  imagem: {
+    width: '80%',
+    height: '80%',
+    resizeMode: 'center'
+  }
 })
