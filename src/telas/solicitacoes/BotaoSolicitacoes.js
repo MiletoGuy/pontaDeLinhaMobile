@@ -3,7 +3,7 @@ import { Text, StyleSheet, Image, Pressable } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 
-const BotaoHome = props => {
+const BotaoSolicitacoes = props => {
   const navigation = useNavigation();
 
   const handlePress = () => {
@@ -50,4 +50,4 @@ const styles = StyleSheet.create({
   }
 })
 
-export default BotaoHome
+export default BotaoSolicitacoes
