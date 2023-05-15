@@ -1,28 +1,9 @@
-import React from 'react';
-import { Alert, View, StyleSheet, BackHandler } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
+import React, {useEffect} from 'react';
+import { View, StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import BotaoHome from './BotaoHome.js';
 
 export default function HomeScreen() {
-  const navigation = useNavigation();
-
-  
-  const backAction = () => {
-    Alert.alert('Calma lá!', 'Tem certeza que você deseja sair?', [
-      {
-        text: 'Voltar',
-        onPress: () => null,
-        style: 'cancel',
-      },
-      {text: 'Sim', onPress: () => navigation.navigate('Login')},
-    ]);
-    return true;
-  };
-  
-  const backHandler = BackHandler.addEventListener('hardwareBackPress', backAction,
-  );
-
 
   return (
     <SafeAreaView style={styles.container}>

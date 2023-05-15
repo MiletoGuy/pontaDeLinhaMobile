@@ -17,6 +17,8 @@ const BotaoHome = props => {
     }
   };
 
+  
+
   return (
         <Pressable style={styles.botaoArea} onPress={handlePress}>
           <Image style={styles.imagem} source={props.imagem}/>

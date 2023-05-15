@@ -1,31 +1,15 @@
 import React, {useState} from 'react';
-import { useNavigation } from '@react-navigation/native';
 import { Text, StyleSheet, SafeAreaView, TextInput, View, Pressable, BackHandler, Alert } from 'react-native';
 import BotaoFicha from './BotaoFicha';
 
 export default function FichaScreen() {
-  const navigation = useNavigation();
   const [fichaID, setFichaID] = useState(0)
 
-  const backAction = () => {
-    Alert.alert('Calma lá!', 'Tem certeza que você deseja sair?', [
-      {
-        text: 'Voltar',
-        onPress: () => null,
-        style: 'cancel',
-      },
-      {text: 'Sim', onPress: () => navigation.navigate('Home')},
-    ]);
-    return true;
-  };
 
   const handleBotao1 = () => {
 
     setFichaID(String(parseInt(fichaID)+1).padStart(4,'0'))
 };
-
-  const backHandler = BackHandler.addEventListener('hardwareBackPress', backAction,
-  );
 
   return (
     <SafeAreaView style={style.container}>
