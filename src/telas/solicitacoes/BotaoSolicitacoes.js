@@ -2,14 +2,12 @@ import React from 'react';
 import { Text, StyleSheet, Image, Pressable } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
-const BotaoHome = props => {
+const BotaoSolicitacoes = props => {
   const navigation = useNavigation();
 
   const handlePress = () => {
     if (props.texto == 'Fichas'){
       navigation.navigate('Ficha')
-    } else if(props.texto == 'Solicitações'){
-      navigation.navigate('Solicitacoes');
     } else {
       alert(props.texto)
     }
@@ -48,4 +46,4 @@ const styles = StyleSheet.create({
   }
 })
 
-export default BotaoHome
+export default BotaoSolicitacoes

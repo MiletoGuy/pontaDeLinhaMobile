@@ -1,21 +1,21 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import BotaoHome from './BotaoHome.js';
+import BotaoSolicitacoes from './BotaoSolicitacoes.js';
 import FuncaoVoltar from '../FuncaoVoltar.js';
 
 
-export default function HomeScreen() {
+export default function SolicitacoesScreen() {
 
-  FuncaoVoltar("Home");
+  FuncaoVoltar("Solicitacoes");
 
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.miniContainer}> 
-        <BotaoHome texto={'Fichas'} imagem={require('./imagens/fichas.png')}/>
-        <BotaoHome texto={'Pesquisa'} imagem={require('./imagens/pesquisa.png')}/>
-        <BotaoHome texto={'Solicitações'} imagem={require('./imagens/solicitacoes.png')}/>
-        <BotaoHome texto={'Meus Dados'} imagem={require('./imagens/meusDados.png')}/>
+        <BotaoSolicitacoes texto={'Nova Ficha'} imagem={require('./imagens/novaFicha.png')}/>
+        <BotaoSolicitacoes texto={'Reportar Problema'} imagem={require('./imagens/reportarProblema.png')}/>
+        <BotaoSolicitacoes texto={'Editar Ficha'} imagem={require('./imagens/editarFicha.png')}/>
+        <BotaoSolicitacoes texto={'Outras Solicitações'} imagem={require('./imagens/outrasSolicitacoes.png')}/>
       </View>
     </SafeAreaView>
   );
