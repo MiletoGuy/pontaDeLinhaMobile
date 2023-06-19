@@ -1,12 +1,12 @@
 import React, {useState} from 'react';
-import { Text, StyleSheet, SafeAreaView, TextInput, View, BackHandler } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import { Text, StyleSheet, SafeAreaView, TextInput, View, Pressable, BackHandler, Alert } from 'react-native';
 import BotaoFicha from './BotaoFicha';
 import FuncaoVoltar from '../FuncaoVoltar';
 
 
 export default function FichaScreen() {
-  FuncaoVoltar("Ficha");
-
+  const navigation = useNavigation();
   const [fichaID, setFichaID] = useState(0)
 
 
@@ -15,6 +15,8 @@ export default function FichaScreen() {
     setFichaID(String(parseInt(fichaID)+1).padStart(4,'0'))
 };
 
+  const backHandler = BackHandler.addEventListener('hardwareBackPress', backAction,
+  );
 
   return (
     <SafeAreaView style={style.container}>
