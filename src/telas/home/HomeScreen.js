@@ -8,7 +8,6 @@ import FuncaoVoltar from '../FuncaoVoltar.js';
 export default function HomeScreen() {
 
   FuncaoVoltar("Home");
-
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.miniContainer}> 

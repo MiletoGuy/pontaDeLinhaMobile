@@ -1,41 +1,29 @@
 import React, {useState} from 'react';
-import { useNavigation } from '@react-navigation/native';
-import { Text, StyleSheet, SafeAreaView, TextInput, View, Pressable, BackHandler, Alert } from 'react-native';
+import { Text, StyleSheet, SafeAreaView, TextInput, View } from 'react-native';
 import BotaoFicha from './BotaoFicha';
-import FuncaoVoltar from '../FuncaoVoltar';
 
 
 export default function FichaScreen() {
-  const navigation = useNavigation();
   const [fichaID, setFichaID] = useState(0)
-
-
-  const handleBotao1 = () => {
-
-    setFichaID(String(parseInt(fichaID)+1).padStart(4,'0'))
-};
-
-  const backHandler = BackHandler.addEventListener('hardwareBackPress', backAction,
-  );
+  const dataFicha = {
+          id: 1, 
+          nome: 'Tales', 
+          cpf: '12345678910',
+          nascimento: '14/06/2002',
+          estado: 'Paraná',
+          cidade: 'Cascavel'
+  };
 
   return (
     <SafeAreaView style={style.container}>
       <View style={style.containerDados}>
 
-        <Text style={style.fichaID}>{fichaID}</Text>
-        <TextInput style={style.input} placeholder='Nome' placeholderTextColor={'gray'}/>
-        <TextInput style={style.input} placeholder='Informação 1' placeholderTextColor={'gray'}/>
-        <TextInput style={style.input} placeholder='Informação 2' placeholderTextColor={'gray'}/>
-        <TextInput style={style.input} placeholder='Informação 3' placeholderTextColor={'gray'}/>
-        <TextInput style={style.input} placeholder='Informação 4' placeholderTextColor={'gray'}/>
-
-      </View>
-      <View style={style.containerBotoes}>
-
-        <BotaoFicha texto="botao1" onPress={handleBotao1}/>
-        <BotaoFicha texto="botao2"/>
-        <BotaoFicha texto="botao3"/>
-        <BotaoFicha texto="botao4"/>
+        <Text style={style.fichaID}>{String(parseInt(dataFicha.id)).padStart(4,'0')}</Text>
+        <TextInput style={style.input} placeholder='Nome Completo' placeholderTextColor={'gray'} editable={false} value={'Nome: ' + dataFicha.nome}/>
+        <TextInput style={style.input} placeholder='CPF' placeholderTextColor={'gray'} editable={false} value={'CPF: ' + dataFicha.cpf}/>
+        <TextInput style={style.input} placeholder='Nascimento' placeholderTextColor={'gray'} editable={false} value={'Nascimento: ' + dataFicha.nascimento}/>
+        <TextInput style={style.input} placeholder='Informação 3' placeholderTextColor={'gray'} editable={false} value={'Estado: ' + dataFicha.estado}/>
+        <TextInput style={style.input} placeholder='Informação 4' placeholderTextColor={'gray'} editable={false} value={'Cidade: ' + dataFicha.cidade}/>
 
       </View>
     </SafeAreaView>

@@ -7,6 +7,7 @@ import LoginScreen from './telas/LoginScreen';
 import HomeScreen from './telas/home/HomeScreen';
 import FichaScreen from './telas/ficha/FichaScreen';
 import SolicitacoesScreen from './telas/solicitacoes/SolicitacoesScreen';
+import PesquisaScreen from './telas/pesquisa/PesquisaScreen';
 
 const Stack = createStackNavigator();
 
@@ -28,7 +29,7 @@ export default function AppNavigator() {
           {text: 'Sim', onPress: () => navigation.navigate('Login')},
         ]);
         return true
-      } 
+      }
       return false;
     
   };
@@ -48,7 +49,9 @@ export default function AppNavigator() {
     }}>
       <Stack.Screen name="Login" component={LoginScreen} />
       <Stack.Screen name="Home" component={HomeScreen} />
-      <Stack.Screen name="Ficha" component={FichaScreen} />
+      <Stack.Screen name="Fichas" component={FichaScreen} />
+      <Stack.Screen name="Solicitacoes" component={SolicitacoesScreen} />
+      <Stack.Screen name="Pesquisa" component={PesquisaScreen} />
     </Stack.Navigator>
   );
 }
