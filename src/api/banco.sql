@@ -1,7 +1,5 @@
 CREATE DATABASE pontadelinha;
 
-\c pontadelinha;
-
 CREATE TABLE usuarios (
   id SERIAL PRIMARY KEY,
   nome_completo VARCHAR(100) NOT NULL,

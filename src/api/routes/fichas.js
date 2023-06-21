@@ -12,4 +12,18 @@ router.get('/', async (req, res) => {
     }
 });
 
+router.post('/', async (req, res) => {
+    try {
+      const { nome_completo, cpf } = req.body;
+      const query = 'INSERT INTO ficha (nome_completo, cpf) VALUES ($1, $2)';
+      const values = [nome_completo, cpf];
+      await pool.query(query, values);
+      res.status(201).json({success: true, message: 'Ficha registrada com sucesso' });
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ error: 'Erro ao registrar ficha' });
+    }
+  });
+  
+
   module.exports = router

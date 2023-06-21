@@ -6,8 +6,8 @@ const BotaoSolicitacoes = props => {
   const navigation = useNavigation();
 
   const handlePress = () => {
-    if (props.texto == 'Fichas'){
-      navigation.navigate('Ficha')
+    if (props.texto == 'Nova Ficha'){
+      navigation.navigate('NovaFicha')
     } else {
       alert(props.texto)
     }

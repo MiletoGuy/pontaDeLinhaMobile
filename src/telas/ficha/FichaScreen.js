@@ -1,7 +1,5 @@
 import React, {useState} from 'react';
 import { Text, StyleSheet, SafeAreaView, TextInput, View } from 'react-native';
-import BotaoFicha from './BotaoFicha';
-
 
 export default function FichaScreen() {
   const [fichaID, setFichaID] = useState(0)
