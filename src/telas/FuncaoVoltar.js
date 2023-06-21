@@ -24,7 +24,6 @@ export default function FuncaoVoltar(currentScreen) {
                         onPress: () => navigation.navigate('Login')},
                 ]);
             }
-            console.log('Back action na tela: ', currentScreen);
             return true;
           };
     

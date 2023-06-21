@@ -32,16 +32,8 @@ const styles = StyleSheet.create({
     width: '80%',
     height: '50%',
     display: 'flex',
-    flexWrap: 'wrap'
-  },
-  botaoArea: {
-    margin: 5,
-    borderRadius: 6,
-    width: '43%',
-    flexBasis: '46%',
-    backgroundColor: 'white',
-    justifyContent: 'space-between',
-    alignItems: 'center'
+    flexWrap: 'wrap',
+    flexDirection: 'column'
   },
   botaoTexto: {
     fontSize: 16,

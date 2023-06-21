@@ -8,6 +8,7 @@ import HomeScreen from './telas/home/HomeScreen';
 import FichaScreen from './telas/ficha/FichaScreen';
 import SolicitacoesScreen from './telas/solicitacoes/SolicitacoesScreen';
 import PesquisaScreen from './telas/pesquisa/PesquisaScreen';
+import PrimeiroAcessoScreen from './telas/primeiroAcesso/PrimeiroAcessoScreen';
 
 const Stack = createStackNavigator();
 
@@ -52,6 +53,7 @@ export default function AppNavigator() {
       <Stack.Screen name="Fichas" component={FichaScreen} />
       <Stack.Screen name="Solicitacoes" component={SolicitacoesScreen} />
       <Stack.Screen name="Pesquisa" component={PesquisaScreen} />
+      <Stack.Screen name="PrimeiroAcesso" component={PrimeiroAcessoScreen} />
     </Stack.Navigator>
   );
 }
