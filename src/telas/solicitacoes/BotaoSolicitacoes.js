@@ -6,11 +6,8 @@ const BotaoSolicitacoes = props => {
   const navigation = useNavigation();
 
   const handlePress = () => {
-    if (props.texto == 'Nova Ficha'){
-      navigation.navigate('NovaFicha')
-    } else {
-      alert(props.texto)
-    }
+    const text = props.texto;
+    navigation.navigate(text.normalize('NFD').replace(/[\u0300-\u036f]/g, "").replace(/\s+/g, ""));
   };
 
   return (

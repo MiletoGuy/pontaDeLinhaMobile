@@ -15,7 +15,7 @@ export default function NovaFichaScreen() {
 
     const handleCadastrar = async () => {
         try {
-            const response = await axios.post('http://192.168.0.138:3000/fichas', data)
+            const response = await axios.post('http://192.168.101.104:3000/fichas', data)
             console.log(response.data)
             if (response.data.success == true) {
                 setNome('')

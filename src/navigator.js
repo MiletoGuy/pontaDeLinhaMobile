@@ -10,6 +10,10 @@ import SolicitacoesScreen from './telas/solicitacoes/SolicitacoesScreen';
 import PesquisaScreen from './telas/pesquisa/PesquisaScreen';
 import PrimeiroAcessoScreen from './telas/primeiroAcesso/PrimeiroAcessoScreen';
 import NovaFichaScreen from './telas/novaFicha/NovaFicha';
+import EsqueceuSenhaScreen from './telas/esqueceuSenha/EsqueceuSenha';
+import MeusDadosScreen from './telas/meusDados/MeusdadosScreen';
+import ReportarProblemaScreen from './telas/reportarProblema/ReportarProblema.Screen';
+import OutrasSolicitacoesScreen from './telas/outrasSolicitacoes/OutrasSolicitacoesScreen';
 
 const Stack = createStackNavigator();
 
@@ -51,11 +55,15 @@ export default function AppNavigator() {
     }}>
       <Stack.Screen name="Login" component={LoginScreen} />
       <Stack.Screen name="Home" component={HomeScreen} />
-      <Stack.Screen name="Fichas" component={FichaScreen} />
+      <Stack.Screen name="Ficha" component={FichaScreen} />
       <Stack.Screen name="Solicitacoes" component={SolicitacoesScreen} />
       <Stack.Screen name="Pesquisa" component={PesquisaScreen} />
       <Stack.Screen name="PrimeiroAcesso" component={PrimeiroAcessoScreen} />
       <Stack.Screen name="NovaFicha" component={NovaFichaScreen} />
+      <Stack.Screen name="EsqueceuSenha" component={EsqueceuSenhaScreen} />
+      <Stack.Screen name="MeusDados" component={MeusDadosScreen} />
+      <Stack.Screen name="ReportarProblema" component={ReportarProblemaScreen} />
+      <Stack.Screen name="OutrasSolicitacoes" component={OutrasSolicitacoesScreen} />
     </Stack.Navigator>
   );
 }

@@ -18,7 +18,7 @@ export default function LoginScreen() {
     }
 
     try {
-      const response = await axios.post('http://192.168.0.138:3000/login', data)
+      const response = await axios.post('http://192.168.101.104:3000/login', data)
       console.log(response.data)
       if (response.data.auth == true){
         setLogin('')
@@ -36,7 +36,7 @@ export default function LoginScreen() {
   }
 
   const handleEsqueceuSenha = () => {
-    alert('esqueceu senha')
+    navigation.navigate('EsqueceuSenha')
   }
 
   return (

@@ -7,7 +7,7 @@ const BotaoHome = props => {
 
   const handlePress = () => {
     const text = props.texto;
-    navigation.navigate(text.normalize('NFD').replace(/[\u0300-\u036f]/g, ""));
+    navigation.navigate(text.normalize('NFD').replace(/[\u0300-\u036f]/g, "").replace(/\s+/g, ""));
   };
 
   return (

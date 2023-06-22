@@ -11,7 +11,7 @@ export default function HomeScreen() {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.miniContainer}> 
-        <BotaoHome texto={'Fichas'} imagem={require('./imagens/fichas.png')}/>
+        <BotaoHome texto={'Ficha'} imagem={require('./imagens/fichas.png')}/>
         <BotaoHome texto={'Pesquisa'} imagem={require('./imagens/pesquisa.png')}/>
         <BotaoHome texto={'Solicitações'} imagem={require('./imagens/solicitacoes.png')}/>
         <BotaoHome texto={'Meus Dados'} imagem={require('./imagens/meusDados.png')}/>

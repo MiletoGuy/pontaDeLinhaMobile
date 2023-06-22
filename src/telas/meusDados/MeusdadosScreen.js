@@ -1,27 +1,16 @@
-import { useRoute } from '@react-navigation/native';
 import React  from 'react';
-import { Text, StyleSheet, SafeAreaView, TextInput, View } from 'react-native';
+import { StyleSheet, SafeAreaView, TextInput, View } from 'react-native';
 
-export default function FichaScreen() {
-  const route = useRoute()
-  let data;
-  if (route.params == undefined) {
-    console.log(route.params)
-    data = {id: 1, nome_completo: 'Ficha 1', cpf: '11111111111'}
-  } else {
-    data = route.params
-  }
-
-
+export default function MeusDadosScreen() {
 
   return (
     <SafeAreaView style={style.container}>
       <View style={style.containerDados}>
 
-        <Text style={style.fichaID}>{String(parseInt(data.id)).padStart(4,'0')}</Text>
-        <TextInput style={style.input} placeholder='Nome Completo' placeholderTextColor={'gray'} editable={false} value={'Nome: ' + data.nome_completo}/>
-        <TextInput style={style.input} placeholder='CPF' placeholderTextColor={'gray'} editable={false} value={'CPF: ' + data.cpf}/>
-
+        <TextInput style={style.input} placeholder='Nome Completo' placeholderTextColor={'gray'} editable={false} value={'Nome: Tales Moreira'}/>
+        <TextInput style={style.input} placeholder='CPF' placeholderTextColor={'gray'} editable={false} value={'CPF: 11029326983'}/>
+        <TextInput style={style.input} placeholder='Nível de Acesso' placeholderTextColor={'gray'} editable={false} value={'Acesso: Nível 1'}/>
+        <TextInput style={style.input} placeholder='Login' placeholderTextColor={'gray'} editable={false} value={'Login: Tales'}/>
 
       </View>
     </SafeAreaView>

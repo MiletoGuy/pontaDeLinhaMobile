@@ -4,52 +4,25 @@ import { useNavigation } from '@react-navigation/native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { TextInput } from 'react-native-gesture-handler';
 import { StatusBar } from 'expo-status-bar';
-import axios from 'axios'
 
-export default function PrimeiroAcessoScreen() {
-  const [nome, setNome] = useState('')
+export default function EsqueceuSenhaScreen() {
   const [cpf, setCpf] = useState('')
-  const [login, setLogin] = useState('')
-  const [senha, setSenha] = useState('')
   const navigation = useNavigation();
 
-  const handleCadastrar = async () => {
-    const data = {
-        nome_completo: nome,
-        cpf: cpf,
-        nivel_acesso: 'Nível 1',
-        login: login,
-        senha: senha
-      }
-  
-      try {
-        const response = await axios.post('http://192.168.101.104:3000/usuarios', data)
-        console.log(response.data)
-        if (response.data.success == true) {
-            setNome('')
-            setCpf('')
-            setLogin('')
-            setSenha('')
-            Alert.alert('Tudo certo até agora', 'Seu cadastro foi um sucesso!', [
-                {text: 'Ir para o Login', onPress: () => navigation.navigate('Login')},
-              ]);
-        }
-      } catch (error) {
-        console.error(error)
-      }
+  const handleCadastrar = () => {
+        Alert.alert('Recuperação de Senha', 'Um e-mail de recuperação foi enviado para sua caixa de entrada', [
+            {text: 'Ir para o Login', onPress: () => navigation.navigate('Login')},
+            ]);
   }
 
 
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar hidden/>
-      <Text style={styles.text}>Preencha seus dados</Text>
-      <TextInput style={styles.input} placeholder='Nome Completo' onChangeText={text => setNome(text)} value={nome}/>
+      <Text style={styles.text}>Informe seu CPF</Text>
       <TextInput style={styles.input} placeholder='CPF' keyboardType='numeric' onChangeText={text => setCpf(text)} value={cpf}/>
-      <TextInput style={styles.input} placeholder='Login' onChangeText={text => setLogin(text)} value={login}/>
-      <TextInput style={styles.input} placeholder='Senha' secureTextEntry={true} onChangeText={text => setSenha(text)} value={senha}/>
       <Pressable style={styles.button}>
-        <Text style={styles.buttonText} onPress={handleCadastrar}>Cadastrar</Text>
+        <Text style={styles.buttonText} onPress={handleCadastrar}>Confirmar</Text>
       </Pressable>
     </SafeAreaView>
   );

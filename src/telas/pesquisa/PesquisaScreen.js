@@ -2,20 +2,15 @@ import React, {useEffect, useState} from 'react';
 import { Text, StyleSheet, SafeAreaView, TextInput, View, TouchableHighlight } from 'react-native';
 import { FlatList } from 'react-native-gesture-handler';
 import axios from 'axios'
+import { useNavigation } from '@react-navigation/native';
 
 export default function PesquisaScreen() {
   useEffect(() => {
     fetchUsuarios();
   }, [])
 
+  const navigator = useNavigation()
   const [usuarios,setUsuarios] = useState([])
-
-  const data = [
-    { id: 1, nome: 'Tales', cpf: '12345678910' },
-    { id: 2, nome: 'Poddis', cpf: '12345678910' },
-    { id: 3, nome: 'Vinicius', cpf: null },
-  ];
-
 
   const fetchUsuarios = async () => {
     try {
@@ -26,8 +21,8 @@ export default function PesquisaScreen() {
     }
   }
 
-  const handleClick = () => {
-    fetchUsuarios();
+  const handleClick = (item) => {
+    navigator.navigate('Ficha', item)
   }
 
 
@@ -36,9 +31,9 @@ export default function PesquisaScreen() {
         <TextInput style={style.filter} placeholder='Filtro' placeholderTextColor={'gray'}/>
         <FlatList
             data={usuarios}
-            keyExtractor={(item) => item.id.toString()} // Certifique-se de converter para string se o id for numérico
+            keyExtractor={(item) => item.id.toString()}
             renderItem={({ item }) => (
-              <TouchableHighlight onPress={handleClick}>
+              <TouchableHighlight onPress={() => handleClick(item)}>
                 <View style={style.containerDados}>
                   <Text style={style.id}>ID: {item.id}</Text>
                   <Text style={style.id}>Nome Completo: {item.nome_completo}</Text>
