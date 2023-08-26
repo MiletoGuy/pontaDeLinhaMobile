@@ -14,6 +14,8 @@ import EsqueceuSenhaScreen from './telas/esqueceuSenha/EsqueceuSenha';
 import MeusDadosScreen from './telas/meusDados/MeusdadosScreen';
 import ReportarProblemaScreen from './telas/reportarProblema/ReportarProblema.Screen';
 import OutrasSolicitacoesScreen from './telas/outrasSolicitacoes/OutrasSolicitacoesScreen';
+import EditarFichaScreen from './telas/editarFicha/EditarFicha';
+import FichaSelecionadaScreen from './telas/editarFicha/FichaSelecionada';
 
 const Stack = createStackNavigator();
 
@@ -64,6 +66,8 @@ export default function AppNavigator() {
       <Stack.Screen name="MeusDados" component={MeusDadosScreen} />
       <Stack.Screen name="ReportarProblema" component={ReportarProblemaScreen} />
       <Stack.Screen name="OutrasSolicitacoes" component={OutrasSolicitacoesScreen} />
+      <Stack.Screen name="EditarFicha" component={EditarFichaScreen} />
+      <Stack.Screen name="FichaSelecionada" component={FichaSelecionadaScreen} />
     </Stack.Navigator>
   );
 }

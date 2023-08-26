@@ -4,7 +4,7 @@ import { FlatList } from 'react-native-gesture-handler';
 import axios from 'axios'
 import { useNavigation } from '@react-navigation/native';
 
-export default function PesquisaScreen() {
+export default function EsditarFichaScreen() {
   useEffect(() => {
     fetchUsuarios();
   }, [])
@@ -26,7 +26,7 @@ export default function PesquisaScreen() {
   }
 
   const handleClick = (item) => {
-    navigator.navigate('Ficha', item)
+    navigator.navigate('FichaSelecionada', item)
   }
 
 
