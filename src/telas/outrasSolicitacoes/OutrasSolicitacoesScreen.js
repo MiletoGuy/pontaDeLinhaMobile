@@ -1,5 +1,5 @@
 import React, { useState }  from 'react';
-import { StyleSheet, SafeAreaView, TextInput, View, Pressable, Text } from 'react-native';
+import { StyleSheet, SafeAreaView, TextInput, View, Pressable, Text, Alert } from 'react-native';
 
 export default function OutrasSolicitacoesScreen() {
 
@@ -7,7 +7,13 @@ export default function OutrasSolicitacoesScreen() {
     const [assunto, setAssunto] = useState('')
 
     const handlePress = () => {
-        alert(descricao)
+      Alert.alert('Solicitação Enviada', 'Sua solicitação foi enviada com sucesso.', [
+        {
+            text: 'OK',
+            onPress: () => null,
+            style: 'cancel',
+        }
+    ]);
     }
 
   return (

@@ -11,7 +11,13 @@ export default function ReportarProblemaScreen() {
   const navigation = useNavigation();
 
   const handlePress = () => {
-    alert("Solicitação enviada com sucesso!")
+    Alert.alert('Solicitação Enviada', 'Sua solicitação foi enviada com sucesso.', [
+      {
+          text: 'OK',
+          onPress: () => null,
+          style: 'cancel',
+      }
+  ]);
   };
 
   return (

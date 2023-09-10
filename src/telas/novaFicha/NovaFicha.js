@@ -2,6 +2,7 @@ import { useNavigation } from '@react-navigation/native';
 import axios from 'axios';
 import React, {useState} from 'react';
 import { Text, StyleSheet, SafeAreaView, TextInput, View, Pressable, Alert } from 'react-native';
+import ValidaCPF from '../ValidaCPF';
 
 export default function NovaFichaScreen() {
     const [nome, setNome] = useState('')
@@ -11,6 +12,20 @@ export default function NovaFichaScreen() {
     const data = {
         nome_completo: nome,
         cpf: cpf
+    }
+
+    const handlePress = () => {
+      if (ValidaCPF(cpf)) {
+        handleCadastrar();
+      } else {
+        Alert.alert('CPF inválido', 'Confira se o cpf informado foi digitado corretamente', [
+          {
+            text: 'Voltar',
+            onPress: () => null,
+            style: 'cancel',
+          }
+        ]);
+      }
     }
 
     const handleCadastrar = async () => {
@@ -37,7 +52,7 @@ export default function NovaFichaScreen() {
       <View style={style.containerDados}>
         <TextInput style={style.input} placeholder='Nome Completo' placeholderTextColor={'gray'} value={nome} onChangeText={(text) => setNome(text)}/>
         <TextInput style={style.input} placeholder='CPF' placeholderTextColor={'gray'} keyboardType='numeric' value={cpf} onChangeText={(text) => setCpf(text)}/>
-        <Pressable style={style.button} onPress={handleCadastrar}>
+        <Pressable style={style.button} onPress={handlePress}>
             <Text style={style.buttonText}>Cadastrar</Text>
         </Pressable>
       </View>

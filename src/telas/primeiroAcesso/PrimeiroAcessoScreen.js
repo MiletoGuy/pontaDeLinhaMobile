@@ -23,7 +23,7 @@ export default function PrimeiroAcessoScreen() {
       }
   
       try {
-        const response = await axios.post('http://192.168.101.104:3000/usuarios', data)
+        const response = await axios.post('http://192.168.0.138:3000/usuarios', data)
         console.log(response.data)
         if (response.data.success == true) {
             setNome('')
@@ -35,6 +35,7 @@ export default function PrimeiroAcessoScreen() {
               ]);
         }
       } catch (error) {
+
         console.error(error)
       }
   }
