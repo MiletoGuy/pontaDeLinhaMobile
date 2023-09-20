@@ -18,7 +18,7 @@ export default function EsditarFichaScreen() {
 
   const fetchUsuarios = async () => {
     try {
-      const response = await axios.get('http://192.168.0.138:3000/fichas')
+      const response = await axios.get('http://192.168.101.104:3000/fichas')
       setUsuarios(response.data)
     } catch (error) {
       console.error(error)
@@ -39,9 +39,9 @@ export default function EsditarFichaScreen() {
             renderItem={({ item }) => (
               <TouchableHighlight onPress={() => handleClick(item)}>
                 <View style={style.containerDados}>
-                  <Text style={style.id}>ID: {item.id}</Text>
-                  <Text style={style.id}>Nome Completo: {item.nome_completo}</Text>
-                  <Text style={style.id}>CPF: {item.cpf}</Text>
+                  <Text>ID: {item.id}</Text>
+                  <Text>Nome Completo: {item.nome_completo}</Text>
+                  <Text>CPF: {item.cpf}</Text>
                 </View>
               </TouchableHighlight>
             )}
@@ -55,7 +55,7 @@ const style = StyleSheet.create({
     container: {
         flex: 1,
         alignItems: 'center',
-        backgroundColor: 'black',
+        backgroundColor: 'white',
         justifyContent: 'space-between'
       },
     containerDados: {
@@ -63,24 +63,17 @@ const style = StyleSheet.create({
         borderRadius: 4,
         borderWidth: 2,
         margin: 5,
-        borderColor: 'white',
-        minWidth: '80%'
-    },
-    input: {
-        width: '80%',
-        color: 'white',
-        padding: 5
-    },
-    id: {
-        color: 'white'
+        borderColor: '#0077b6',
+        minWidth: '80%',
+        backgroundColor: 'white'
     },
     filter: {
         margin: 5,
         width: '80%',
         borderRadius: 4,
         borderWidth: 2,
-        borderColor: 'white',
-        color: 'white',
+        borderColor: '#0077b6',
+        color: 'black',
         padding: 5
       },
      

@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'black',
+    backgroundColor: 'white',
   },
   miniContainer: {
     alignContent: 'center',
@@ -34,27 +34,5 @@ const styles = StyleSheet.create({
     height: '50%',
     display: 'flex',
     flexWrap: 'wrap'
-  },
-  botaoArea: {
-    margin: 5,
-    borderRadius: 6,
-    width: '43%',
-    flexBasis: '46%',
-    backgroundColor: 'white',
-    justifyContent: 'space-between',
-    alignItems: 'center'
-  },
-  botaoTexto: {
-    fontSize: 16,
-    fontWeight: 'bold',
-    letterSpacing: 0.25,
-    color: 'black',
-    textAlign: 'center',
-    textAlignVertical: 'bottom'
-  },
-  imagem: {
-    width: '80%',
-    height: '80%',
-    resizeMode: 'center'
   }
 })

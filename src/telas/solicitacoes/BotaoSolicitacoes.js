@@ -24,15 +24,16 @@ const styles = StyleSheet.create({
     borderRadius: 6,
     width: '43%',
     flexBasis: '46%',
-    backgroundColor: 'white',
+    backgroundColor: '#0077b6',
     justifyContent: 'space-between',
-    alignItems: 'center'
+    alignItems: 'center',
+    elevation: 5
   },
   botaoTexto: {
     fontSize: 16,
     fontWeight: 'bold',
     letterSpacing: 0.25,
-    color: 'black',
+    color: 'white',
     textAlign: 'center',
     textAlignVertical: 'bottom'
   },

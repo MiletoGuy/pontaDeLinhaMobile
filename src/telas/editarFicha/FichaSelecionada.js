@@ -19,7 +19,7 @@ export default function FichaSelecionadaScreen() {
 
   const handlePress = async() => {
     try {
-      await axios.put(`http://192.168.0.138:3000/fichas/${id}`, {
+      await axios.put(`http://192.168.101.104:3000/fichas/${id}`, {
         nome_completo: nome,
         cpf: cpf,
       });
@@ -54,22 +54,15 @@ const style = StyleSheet.create({
     container: {
         flex: 1,
         alignItems: 'center',
-        backgroundColor: 'black',
+        backgroundColor: 'white',
         justifyContent: 'space-between'
       },
       containerDados: {
         alignItems: 'center',
         width: '100%'
       },
-      containerBotoes: {
-        height: '20%',
-        width: '80%',
-        alignContent: 'center',
-        flexDirection: 'row',
-        flexWrap: 'wrap'
-      },
       fichaID: {
-        color: 'white',
+        color: '#0077b6',
         fontSize: 32,
         fontWeight: 'bold',
         textAlignVertical: 'bottom'
@@ -79,8 +72,8 @@ const style = StyleSheet.create({
         width: '80%',
         borderRadius: 4,
         borderWidth: 2,
-        borderColor: 'white',
-        color: 'white',
+        borderColor: '#0077b6',
+        color: 'black',
         padding: 5
       },
       button: {
@@ -90,7 +83,14 @@ const style = StyleSheet.create({
         paddingHorizontal: 32,
         borderRadius: 4,
         elevation: 3,
-        backgroundColor: 'white',
+        backgroundColor: '#0077b6',
+      },
+      buttonText: {
+        fontSize: 16,
+        lineHeight: 21,
+        fontWeight: 'bold',
+        letterSpacing: 0.25,
+        color: 'white',
       },
       
 })

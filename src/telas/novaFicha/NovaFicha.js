@@ -64,33 +64,20 @@ const style = StyleSheet.create({
     container: {
         flex: 1,
         alignItems: 'center',
-        backgroundColor: 'black',
+        backgroundColor: 'white',
         justifyContent: 'space-between'
       },
       containerDados: {
         alignItems: 'center',
         width: '100%'
       },
-      containerBotoes: {
-        height: '20%',
-        width: '80%',
-        alignContent: 'center',
-        flexDirection: 'row',
-        flexWrap: 'wrap'
-      },
-      fichaID: {
-        color: 'white',
-        fontSize: 32,
-        fontWeight: 'bold',
-        textAlignVertical: 'bottom'
-      },
       input: {
         margin: 5,
         width: '80%',
         borderRadius: 4,
         borderWidth: 2,
-        borderColor: 'white',
-        color: 'white',
+        borderColor: '#0077b6',
+        color: '#0077b6',
         padding: 5
       },
       button: {
@@ -99,15 +86,15 @@ const style = StyleSheet.create({
         paddingVertical: 12,
         paddingHorizontal: 32,
         borderRadius: 4,
-        elevation: 3,
-        backgroundColor: 'white',
+        elevation: 5,
+        backgroundColor: '#0077b6',
       },
       buttonText: {
         fontSize: 16,
         lineHeight: 21,
         fontWeight: 'bold',
         letterSpacing: 0.25,
-        color: 'black',
+        color: 'white',
       },
       
 })

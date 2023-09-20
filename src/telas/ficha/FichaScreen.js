@@ -32,7 +32,7 @@ const style = StyleSheet.create({
     container: {
         flex: 1,
         alignItems: 'center',
-        backgroundColor: 'black',
+        backgroundColor: 'white',
         justifyContent: 'space-between'
       },
       containerDados: {
@@ -47,7 +47,7 @@ const style = StyleSheet.create({
         flexWrap: 'wrap'
       },
       fichaID: {
-        color: 'white',
+        color: '#0077b6',
         fontSize: 32,
         fontWeight: 'bold',
         textAlignVertical: 'bottom'
@@ -57,8 +57,8 @@ const style = StyleSheet.create({
         width: '80%',
         borderRadius: 4,
         borderWidth: 2,
-        borderColor: 'white',
-        color: 'white',
+        borderColor: '#0077b6',
+        color: '#0077b6',
         padding: 5
       },
       

@@ -31,7 +31,7 @@ const style = StyleSheet.create({
     container: {
         flex: 1,
         alignItems: 'center',
-        backgroundColor: 'black',
+        backgroundColor: 'white',
         justifyContent: 'space-between'
       },
       input: {
@@ -39,8 +39,8 @@ const style = StyleSheet.create({
         width: '80%',
         borderRadius: 4,
         borderWidth: 2,
-        borderColor: 'white',
-        color: 'white',
+        borderColor: '#0077b6',
+        color: '#0077b6',
         padding: 5,
       },
       button: {
@@ -51,7 +51,7 @@ const style = StyleSheet.create({
         paddingHorizontal: 32,
         borderRadius: 4,
         elevation: 3,
-        backgroundColor: 'white',
+        backgroundColor: '#0077b6',
         margin: 5
       },
       buttonText: {
@@ -59,7 +59,7 @@ const style = StyleSheet.create({
         lineHeight: 21,
         fontWeight: 'bold',
         letterSpacing: 0.25,
-        color: 'black',
+        color: 'white',
       }
       
 })

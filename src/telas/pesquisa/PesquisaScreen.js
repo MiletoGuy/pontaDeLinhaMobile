@@ -18,7 +18,7 @@ export default function PesquisaScreen() {
 
   const fetchUsuarios = async () => {
     try {
-      const response = await axios.get('http://192.168.0.138:3000/fichas')
+      const response = await axios.get('http://192.168.101.104:3000/fichas')
       setUsuarios(response.data)
     } catch (error) {
       console.error(error)
@@ -32,7 +32,7 @@ export default function PesquisaScreen() {
 
   return (
     <SafeAreaView style={style.container}>
-        <TextInput style={style.filter} placeholder='Filtro' placeholderTextColor={'gray'} onChangeText={text => setFilter(text)} value={filter}/>
+        <TextInput style={style.filter} placeholder='Filtro' onChangeText={text => setFilter(text)} value={filter}/>
         <FlatList
             data={usuarios}
             keyExtractor={(item) => item.id.toString()}
@@ -55,7 +55,7 @@ const style = StyleSheet.create({
     container: {
         flex: 1,
         alignItems: 'center',
-        backgroundColor: 'black',
+        backgroundColor: 'white',
         justifyContent: 'space-between'
       },
     containerDados: {
@@ -63,25 +63,26 @@ const style = StyleSheet.create({
         borderRadius: 4,
         borderWidth: 2,
         margin: 5,
-        borderColor: 'white',
-        minWidth: '80%'
+        borderColor: '#0077b6',
+        minWidth: '80%',
+        backgroundColor: 'white'
     },
     input: {
         width: '80%',
-        color: 'white',
+        color: 'black',
         padding: 5
     },
     id: {
-        color: 'white'
+        color: 'black'
     },
     filter: {
         margin: 5,
         width: '80%',
         borderRadius: 4,
         borderWidth: 2,
-        borderColor: 'white',
-        color: 'white',
+        borderColor: '#0077b6',
+        color: 'black',
         padding: 5
-      },
+      }
      
 })
