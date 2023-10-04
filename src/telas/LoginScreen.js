@@ -24,6 +24,7 @@ export default function LoginScreen() {
         setLogin('')
         setSenha('')
         navigation.navigate('Home')
+        console.log(data)
       } else if (response.data.auth == false){
         alert('Login Invalido');
       }

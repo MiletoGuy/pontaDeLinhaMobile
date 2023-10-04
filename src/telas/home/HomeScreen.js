@@ -27,12 +27,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: 'white',
   },
+  
   miniContainer: {
     alignContent: 'center',
     width: '80%',
     height: '50%',
     display: 'flex',
-    flexWrap: 'wrap',
-    flexDirection: 'column'
+    flexWrap: 'wrap'
   }
 })

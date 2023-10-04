@@ -12,8 +12,9 @@ export default function PesquisaScreen() {
   const navigator = useNavigation()
   const [usuarios,setUsuarios] = useState([])
   const [filter, setFilter] = useState('');
-  const filteredData = usuarios.filter(item =>
-    item.nome_completo.toLowerCase().includes(filter.toLowerCase())
+  const usuariosFiltrados = usuarios.filter(item =>
+    item.nome_completo.toLowerCase().includes(filter.toLowerCase()) ||
+    item.cpf.includes(filter)
   );
 
   const fetchUsuarios = async () => {
@@ -34,7 +35,7 @@ export default function PesquisaScreen() {
     <SafeAreaView style={style.container}>
         <TextInput style={style.filter} placeholder='Filtro' onChangeText={text => setFilter(text)} value={filter}/>
         <FlatList
-            data={usuarios}
+            data={usuariosFiltrados}
             keyExtractor={(item) => item.id.toString()}
             renderItem={({ item }) => (
               <TouchableHighlight onPress={() => handleClick(item)}>

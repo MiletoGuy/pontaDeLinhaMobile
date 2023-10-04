@@ -1,19 +1,36 @@
+import { useNavigation } from '@react-navigation/native';
 import React, { useState }  from 'react';
 import { StyleSheet, SafeAreaView, TextInput, View, Pressable, Text, Alert } from 'react-native';
 
 export default function OutrasSolicitacoesScreen() {
 
+    const navigation = useNavigation()
     const [descricao, setDescricao] = useState('')
     const [assunto, setAssunto] = useState('')
 
     const handlePress = () => {
-      Alert.alert('Solicitação Enviada', 'Sua solicitação foi enviada com sucesso.', [
-        {
-            text: 'OK',
-            onPress: () => null,
-            style: 'cancel',
-        }
-    ]);
+
+      if (descricao && assunto){
+        Alert.alert('Solicitação Enviada', 'Sua solicitação foi enviada com sucesso.', [
+          {
+              text: 'OK',
+              onPress: () => navigation.navigate('Solicitacoes'),
+              style: 'cancel',
+          }
+      ]);
+      setDescricao('')
+      setAssunto('')
+      
+      }
+      else {
+        Alert.alert('Ops!', 'Você precisa preencher os campos de assunto e descrição para enviar uma solicitação', [
+          {
+              text: 'OK',
+              onPress: () => null,
+              style: 'cancel',
+          }
+      ]);
+      }
     }
 
   return (
@@ -40,7 +57,6 @@ const style = StyleSheet.create({
         borderRadius: 4,
         borderWidth: 2,
         borderColor: '#0077b6',
-        color: '#0077b6',
         padding: 5,
       },
       button: {
