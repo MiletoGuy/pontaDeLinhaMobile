@@ -16,7 +16,7 @@ router.post('/', async (req, res) => {
             res.json({auth: false})
         }
         else {
-            res.json({auth: true})
+            res.json({auth: true, userId: rows[0].id})
         }
         
     } catch (error) {
