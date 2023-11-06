@@ -11,11 +11,13 @@ export default function SolicitacoesScreen() {
 
   return (
     <SafeAreaView style={styles.container}>
-      <View style={styles.miniContainer}> 
-        <BotaoSolicitacoes texto={'Nova Ficha'} imagem={require('./imagens/novaFicha.png')}/>
-        <BotaoSolicitacoes texto={'Reportar Problema'} imagem={require('./imagens/reportarProblema.png')}/>
-        <BotaoSolicitacoes texto={'Editar Ficha'} imagem={require('./imagens/editarFicha.png')}/>
-        <BotaoSolicitacoes texto={'Outras Solicitações'} imagem={require('./imagens/outrasSolicitacoes.png')}/>
+      <View style={styles.linha}>
+        <BotaoSolicitacoes texto={'Nova Ficha'} imagem={require('./imagens/novaFicha.png')} />
+        <BotaoSolicitacoes texto={'Reportar Problema'} imagem={require('./imagens/reportarProblema.png')} />
+      </View>
+      <View style={styles.linha}>
+        <BotaoSolicitacoes texto={'Editar Ficha'} imagem={require('./imagens/editarFicha.png')} />
+        <BotaoSolicitacoes texto={'Outras Solicitações'} imagem={require('./imagens/outrasSolicitacoes.png')} />
       </View>
     </SafeAreaView>
   );
@@ -28,11 +30,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: 'white',
   },
-  miniContainer: {
-    alignContent: 'center',
-    width: '80%',
-    height: '50%',
-    display: 'flex',
-    flexWrap: 'wrap'
+  linha: {
+    height: 220,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center'
   }
 })

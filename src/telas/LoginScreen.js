@@ -5,11 +5,13 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { TextInput } from 'react-native-gesture-handler';
 import { StatusBar } from 'expo-status-bar';
 import axios from 'axios'
+import GetIp from './GetIp';
 
 export default function LoginScreen() {
   const [login, setLogin] = useState('')
   const [senha, setSenha] = useState('')
   const navigation = useNavigation();
+  const route = 'http://' + GetIp() + ':3000/login'
 
   const handleLogin = async () => {
     const data = {
@@ -18,15 +20,19 @@ export default function LoginScreen() {
     }    
 
     try {
-      const response = await axios.post('http://192.168.101.104:3000/login', data)
+      const response = await axios.post(route, data)
       console.log(response.data)
       if (response.data.auth == true){
         setLogin('')
         setSenha('')
         navigation.navigate('Home')
-        console.log(data)
       } else if (response.data.auth == false){
-        alert('Login Invalido');
+        Alert.alert('Ops, algo deu errado', 'Login ou senha incorretos', [
+          {text: 'Voltar', onPress: () => {
+            setSenha('')
+            setLogin('')
+          }},
+        ]);
       }
     } catch (error) {
       console.error(error)

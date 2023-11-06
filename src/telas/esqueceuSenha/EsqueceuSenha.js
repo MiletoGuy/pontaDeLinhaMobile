@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Alert, Pressable, Text, StyleSheet } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { TextInput } from 'react-native-gesture-handler';
+import { TextInputMask } from 'react-native-masked-text';
 import { StatusBar } from 'expo-status-bar';
 
 export default function EsqueceuSenhaScreen() {
@@ -20,7 +20,7 @@ export default function EsqueceuSenhaScreen() {
     <SafeAreaView style={styles.container}>
       <StatusBar hidden/>
       <Text style={styles.text}>Informe seu CPF</Text>
-      <TextInput style={styles.input} placeholder='CPF' keyboardType='numeric' onChangeText={text => setCpf(text)} value={cpf}/>
+      <TextInputMask type='cpf' style={styles.input} placeholder='CPF' keyboardType='numeric' onChangeText={text => setCpf(text)} value={cpf}/>
       <Pressable style={styles.button}>
         <Text style={styles.buttonText} onPress={handleCadastrar}>Confirmar</Text>
       </Pressable>

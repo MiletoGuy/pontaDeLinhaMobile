@@ -22,8 +22,7 @@ const styles = StyleSheet.create({
   botaoArea: {
     margin: 5,
     borderRadius: 6,
-    width: '43%',
-    flexBasis: '46%',
+    width: 150,
     backgroundColor: '#0077b6',
     justifyContent: 'space-between',
     alignItems: 'center',

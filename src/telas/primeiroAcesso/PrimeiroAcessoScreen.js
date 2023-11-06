@@ -5,6 +5,9 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { TextInput } from 'react-native-gesture-handler';
 import { StatusBar } from 'expo-status-bar';
 import axios from 'axios'
+import GetIp from '../GetIp';
+import { TextInputMask } from 'react-native-masked-text'
+import ValidaCPF from '../ValidaCPF';
 
 export default function PrimeiroAcessoScreen() {
   const [nome, setNome] = useState('')
@@ -12,43 +15,56 @@ export default function PrimeiroAcessoScreen() {
   const [login, setLogin] = useState('')
   const [senha, setSenha] = useState('')
   const navigation = useNavigation();
+  const route = 'http://' + GetIp() + ':3000/usuarios'
+
 
   const handleCadastrar = async () => {
     const data = {
-        nome_completo: nome,
-        cpf: cpf,
-        nivel_acesso: 'Nível 1',
-        login: login,
-        senha: senha
-      }
-  
+      nome_completo: nome,
+      cpf: cpf.replace(/\D+/g, ""),
+      nivel_acesso: 'Nível 1',
+      login: login,
+      senha: senha
+    }
+
+    if (cpf == '' || nome == '' || login == '' || senha == '') {
+      Alert.alert('Dados inválidos', 'Preencha todos os campos para realizar o seu cadastro', [
+        { text: 'Voltar', },
+      ])
+    } else if (!ValidaCPF(cpf)) {
+      Alert.alert('CPF inválido', 'Confira seu CPF e digite novamente', [
+        { text: 'Voltar', },
+      ])
+    } else {
       try {
-        const response = await axios.post('http://192.168.0.138:3000/usuarios', data)
-        console.log(response.data)
+        const response = await axios.post(route, data)
         if (response.data.success == true) {
-            setNome('')
-            setCpf('')
-            setLogin('')
-            setSenha('')
-            Alert.alert('Tudo certo até agora', 'Seu cadastro foi um sucesso!', [
-                {text: 'Ir para o Login', onPress: () => navigation.navigate('Login')},
-              ]);
+          setNome('')
+          setCpf('')
+          setLogin('')
+          setSenha('')
+          Alert.alert('Tudo certo até agora', 'Seu cadastro foi um sucesso!', [
+            { text: 'Ir para o Login', onPress: () => navigation.navigate('Login') },
+          ])
         }
       } catch (error) {
         console.error(error)
-        
+
       }
+    }
   }
+
+
 
 
   return (
     <SafeAreaView style={styles.container}>
-      <StatusBar hidden/>
+      <StatusBar hidden />
       <Text style={styles.text}>Preencha seus dados</Text>
-      <TextInput style={styles.input} placeholder='Nome Completo' onChangeText={text => setNome(text)} value={nome}/>
-      <TextInput style={styles.input} placeholder='CPF' keyboardType='numeric' onChangeText={text => setCpf(text)} value={cpf}/>
-      <TextInput style={styles.input} placeholder='Login' onChangeText={text => setLogin(text)} value={login}/>
-      <TextInput style={styles.input} placeholder='Senha' secureTextEntry={true} onChangeText={text => setSenha(text)} value={senha}/>
+      <TextInput style={styles.input} placeholder='Nome Completo' onChangeText={text => setNome(text)} value={nome} />
+      <TextInputMask type='cpf' style={styles.input} placeholder='CPF' keyboardType='numeric' onChangeText={text => setCpf(text)} value={cpf} />
+      <TextInput style={styles.input} placeholder='Login' onChangeText={text => setLogin(text)} value={login} />
+      <TextInput style={styles.input} placeholder='Senha' onChangeText={text => setSenha(text)} secureTextEntry={true} value={senha} />
       <Pressable style={styles.button}>
         <Text style={styles.buttonText} onPress={handleCadastrar}>Cadastrar</Text>
       </Pressable>

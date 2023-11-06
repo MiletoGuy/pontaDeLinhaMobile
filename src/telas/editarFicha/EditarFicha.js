@@ -3,12 +3,13 @@ import { Text, StyleSheet, SafeAreaView, TextInput, View, TouchableHighlight } f
 import { FlatList } from 'react-native-gesture-handler';
 import axios from 'axios'
 import { useNavigation } from '@react-navigation/native';
+import GetIp from '../GetIp';
 
 export default function EsditarFichaScreen() {
   useEffect(() => {
     fetchUsuarios();
   }, [])
-
+  const route = 'http://' + GetIp() + ':3000/fichas'
   const navigator = useNavigation()
   const [usuarios,setUsuarios] = useState([])
   const [filter, setFilter] = useState('');
@@ -18,7 +19,7 @@ export default function EsditarFichaScreen() {
 
   const fetchUsuarios = async () => {
     try {
-      const response = await axios.get('http://192.168.101.104:3000/fichas')
+      const response = await axios.get(route)
       setUsuarios(response.data)
     } catch (error) {
       console.error(error)

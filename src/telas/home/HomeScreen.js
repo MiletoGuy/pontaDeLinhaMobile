@@ -10,12 +10,14 @@ export default function HomeScreen() {
   FuncaoVoltar("Home");
   return (
     <SafeAreaView style={styles.container}>
-      <View style={styles.miniContainer}> 
-        <BotaoHome texto={'Ficha'} imagem={require('./imagens/fichas.png')}/>
-        <BotaoHome texto={'Pesquisa'} imagem={require('./imagens/pesquisa.png')}/>
-        <BotaoHome texto={'Solicitações'} imagem={require('./imagens/solicitacoes.png')}/>
-        <BotaoHome texto={'Meus Dados'} imagem={require('./imagens/meusDados.png')}/>
-      </View>
+        <View style={styles.linha}>
+          <BotaoHome texto={'Ficha'} imagem={require('./imagens/fichas.png')} />
+          <BotaoHome texto={'Pesquisa'} imagem={require('./imagens/pesquisa.png')} />
+        </View>
+        <View style={styles.linha}>
+          <BotaoHome texto={'Solicitações'} imagem={require('./imagens/solicitacoes.png')} />
+          <BotaoHome texto={'Meus Dados'} imagem={require('./imagens/meusDados.png')} />
+        </View>
     </SafeAreaView>
   );
 }
@@ -27,12 +29,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: 'white',
   },
-  
-  miniContainer: {
-    alignContent: 'center',
-    width: '80%',
-    height: '50%',
-    display: 'flex',
-    flexWrap: 'wrap'
+  linha: {
+    height: 220,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center'
   }
 })
