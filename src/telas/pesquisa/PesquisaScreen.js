@@ -7,7 +7,7 @@ import GetIp from '../GetIp'
 
 export default function PesquisaScreen() {
   useEffect(() => {
-    fetchUsuarios();
+    fetchFichas();
   }, [])
 
   const route = 'http://' + GetIp() + ':3000/fichas'
@@ -19,7 +19,7 @@ export default function PesquisaScreen() {
     item.cpf.includes(filter)
   );
 
-  const fetchUsuarios = async () => {
+  const fetchFichas = async () => {
     try {
       const response = await axios.get(route)
       setUsuarios(response.data)

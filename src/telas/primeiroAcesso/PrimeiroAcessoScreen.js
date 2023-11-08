@@ -17,7 +17,6 @@ export default function PrimeiroAcessoScreen() {
   const navigation = useNavigation();
   const route = 'http://' + GetIp() + ':3000/usuarios'
 
-
   const handleCadastrar = async () => {
     const data = {
       nome_completo: nome,

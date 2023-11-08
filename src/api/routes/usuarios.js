@@ -12,6 +12,22 @@ router.get('/', async (req, res) => {
     }
 });
 
+router.get('/:id', async (req, res) => {
+    const userId = req.params.id; // Obtém o ID do parâmetro da rota
+    try {
+        const { rows } = await pool.query('SELECT * FROM usuarios WHERE id = $1', [userId]);
+        if (rows.length === 0) {
+            res.status(404).json({ message: 'Usuário não encontrado' });
+        } else {
+            res.json(rows[0]); // Retorna o primeiro usuário encontrado
+        }
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'Erro ao buscar usuário' });
+    }
+});
+
+
 router.post('/', async (req, res) => {
     try {
       const { nome_completo, cpf, nivel_acesso, login, senha } = req.body;

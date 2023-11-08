@@ -6,14 +6,21 @@ import { TextInput } from 'react-native-gesture-handler';
 import { StatusBar } from 'expo-status-bar';
 import axios from 'axios'
 import GetIp from './GetIp';
-import { useAsyncStorage } from '@react-native-async-storage/async-storage'
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function LoginScreen() {
   const [login, setLogin] = useState('')
   const [senha, setSenha] = useState('')
   const navigation = useNavigation();
   const route = 'http://' + GetIp() + ':3000/login'
-  const storage = useAsyncStorage()
+
+  const storeData = async (value) => {
+    try {
+      await AsyncStorage.setItem("userId", value);
+    } catch (e) {
+      console.error(e)
+    }
+  };
 
   const handleLogin = async () => {
     const data = {
@@ -28,6 +35,8 @@ export default function LoginScreen() {
         setLogin('')
         setSenha('')
 
+        const userId = response.data.userId
+        storeData(userId.toString())
 
         navigation.navigate('Home')
       } else if (response.data.auth == false){
